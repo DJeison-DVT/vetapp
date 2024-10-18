@@ -31,6 +31,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3f784eb5-69cc-4af5-b9df-27058859e1b1"
+      }
+    },
+    "owner": "djeison-dvt"
   }
 }
