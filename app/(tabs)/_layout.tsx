@@ -23,6 +23,15 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="add-animal"
+        options={{
+          title: 'Add Animal',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'add' : 'add-outline'} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
