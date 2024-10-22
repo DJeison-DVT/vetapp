@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { collection, addDoc } from 'firebase/firestore';
-// import { db } from '@/firebaseConfig';
 import { Animal } from '@/types';
 import { useRouter } from 'expo-router';
 import { db } from '@/firebaseConfig';
@@ -39,6 +38,7 @@ export default function AddAnimal() {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>Add a new animal!</Text>
             <TextInput
                 placeholder="Animal Name"
                 value={animal.name}
@@ -58,10 +58,10 @@ export default function AddAnimal() {
                 onChangeText={(text) => setAnimal((prev) => ({ ...prev, picture: text }))}
                 style={styles.input}
             />
-
             <Button
                 title="Add Animal"
                 onPress={handleAddAnimal}
+                color="#00796B"
             />
         </View>
     );
@@ -71,13 +71,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        backgroundColor: '#F0F8FF',
+        justifyContent: 'center',
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#333',
+        textAlign: 'center',
+        marginBottom: 20,
     },
     input: {
         height: 40,
-        borderColor: 'gray',
+        borderColor: '#B2DFDB',
         borderWidth: 1,
-        marginBottom: 10,
+        borderRadius: 8,
         padding: 10,
+        marginBottom: 15,
+        backgroundColor: '#FFF',
     },
 });
-

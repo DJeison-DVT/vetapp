@@ -23,6 +23,7 @@ export default function AnimalDetails() {
             console.log("No such document!");
         }
     };
+
     useEffect(() => {
         fetchAnimalDetails();
 
@@ -38,24 +39,22 @@ export default function AnimalDetails() {
         });
     }, [id]);
 
-
     return (
         <View style={styles.container}>
             {animal ? (
                 <>
-                    <Text style={styles.animalName}>{animal.name}</Text>
-                    <Text style={styles.animalAge}>{animal.age}</Text>
+                    <Text style={styles.greeting}>Meet {animal.name}!</Text>
+                    <Text style={styles.animalAge}>Age: {animal.age} years old</Text>
+                    <Text style={styles.photoLabel}>Here's a photo:</Text>
                     <Image
                         source={{ uri: animal.picture }}
                         style={styles.animalImage}
                         resizeMode="contain"
                     />
-
                 </>
             ) : (
-                <Text>Loading...</Text>
+                <Text style={styles.loadingText}>Loading...</Text>
             )}
-
         </View>
     );
 }
@@ -64,13 +63,38 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        backgroundColor: '#F0F8FF',
+        alignItems: 'center',        
+        justifyContent: 'center',    
     },
-    animalName: {
-        fontSize: 24,
+    greeting: {
+        fontSize: 32,
         fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 10,
+        textAlign: 'center',         
     },
     animalAge: {
-        fontSize: 24,
+        fontSize: 20,
+        color: '#555',
+        marginBottom: 20,
+        textAlign: 'center',
     },
-    animalImage: { width: 200, height: 200 }
+    photoLabel: {
+        fontSize: 18,
+        color: '#777',
+        marginBottom: 10,
+        textAlign: 'center',
+    },
+    animalImage: {
+        width: 300,
+        height: 300,
+        borderRadius: 10,            
+        marginBottom: 20,
+    },
+    loadingText: {
+        fontSize: 18,
+        color: '#999',
+        textAlign: 'center',
+    },
 });
